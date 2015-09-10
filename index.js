@@ -1,5 +1,6 @@
 var chalk = require('chalk');
 var commands = ["tweet"];
+var config = require('./config/config.js');
 
 var isWin = /^win/.test(process.platform);
 
@@ -32,9 +33,7 @@ function processTweet(args, comPos) {
       tweet += val + ' ';
     }
   });
-
   console.log(tweet);
-
 }
 
 function processInvalidCommand() {
@@ -45,7 +44,7 @@ function processInvalidCommand() {
 }
 
 
-switch(process.argv[getCommandPosition(process.argv)]) {
+switch (process.argv[getCommandPosition(process.argv)]) {
   case 'tweet':
     processTweet(process.argv, getCommandPosition(process.argv));
     break;
