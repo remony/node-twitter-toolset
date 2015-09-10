@@ -1,0 +1,13 @@
+{
+  "name": "twittertoolset",
+  "version": "0.0.1",
+  "description": "A simple toolset to tweet, stream tags, etc from commandline",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "twitter": "^1.2.5"
+  }
+}
