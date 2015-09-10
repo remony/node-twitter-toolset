@@ -8,6 +8,8 @@
   "main": "index.js",
   "dependencies": {
     "chalk": "^1.1.1",
+    "columnify": "^1.5.2",
+    "request": "^2.61.0",
     "twitter": "^1.2.5"
   }
 }

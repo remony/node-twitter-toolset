@@ -1,5 +1,5 @@
 var chalk = require('chalk');
-var commands = ["tweet"];
+var commands = ["tweet", "stream"];
 var config = require('./config/config.js');
 
 var isWin = /^win/.test(process.platform);
@@ -7,6 +7,9 @@ var isWin = /^win/.test(process.platform);
 if (!isWin) {
   console.log(chalk.white.bgRed("WARNING\nOnly Tested on Windows\n\n"));
 }
+
+var Twitter = require('./tools/twittercom.js').Twitter;
+var twitter = new Twitter();
 
 
 function getCommandPosition(array) {
@@ -28,11 +31,11 @@ function processTweet(args, comPos) {
   var tweet = '';
 
   args.forEach(function(val, index, array) {
-    console.log(index + ' : ' + comPos);
     if (index > comPos) {
       tweet += val + ' ';
     }
   });
+  twitter.tweet(tweet);
   console.log(tweet);
 }
 
@@ -47,6 +50,9 @@ function processInvalidCommand() {
 switch (process.argv[getCommandPosition(process.argv)]) {
   case 'tweet':
     processTweet(process.argv, getCommandPosition(process.argv));
+    break;
+  case 'stream':
+    twitter.stream(process.argv[getCommandPosition(process.argv) + 1]);
     break;
   default:
     processInvalidCommand();
