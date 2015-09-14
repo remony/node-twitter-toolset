@@ -78,6 +78,7 @@ Twitter.prototype.stream = function(subject) {
   });
 }
 
+// Will save videos
 function saveVideo(url, name) {
   name = "videos/" + name + path.extname(url);
   if (path.extname(url) === '.mp4') {
